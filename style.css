@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;      
+    padding: 0;
+    background-color: lightgrey;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    padding: 20px;
+    padding-bottom: 6px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: flex-end; 
+    list-style: none;
+    gap: 35px;
+  }
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+}
+
+.project:hover {
+    transform: scale(1.01);
+    background-color: gainsboro;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  .project:active {
+    background-color: grey
+  }
+
+.para{
+    text-align: center;
+}
+div{
+    background-color: #F3F4F6;
+    border-radius: 5px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  form input,
+  form textarea,
+  form button {
+   padding: 12px;
+     border-radius: 16px;
+        }
+  
+  form button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #555;
+  }
+  
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+  
+@keyframes highlight {
+    0% {
+      box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+      background-color:gray;
+    }
+    100% {
+      box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+      background-color: transparent;
+    }
+  }
+  
+  .highlight-section {
+    animation: highlight 1.5s ease;
+  }
