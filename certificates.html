@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Certificates</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #121212, #1f1f1f);
+      color: #ddd;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      color: #a78bff;
+      text-shadow: 0 0 8px rgba(167, 139, 255, 0.7);
+    }
+
+    h1 {
+      margin-bottom: 0.3rem;
+    }
+
+    .divider {
+      width: 150px;
+      height: 4px;
+      background-color: #7c4dff;
+      border: none;
+      margin: 0 auto 2rem;
+      border-radius: 2px;
+      box-shadow: 0 0 12px rgba(124, 77, 255, 0.8);
+    }
+
+    .certificate-container {
+      max-width: 1000px;
+      margin: 0 auto 4rem;
+      padding: 0 20px;
+    }
+
+    .certificate {
+      background-color: #2c2c2c;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(167, 139, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .certificate:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(167, 139, 255, 0.4);
+    }
+
+    .certificate img {
+      width: 360px;
+      height: 260px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(124, 77, 255, 0.5);
+    }
+
+    .certificate-content {
+      flex: 1 1 400px;
+      color: #a78bff;
+      text-shadow: 0 0 4px rgba(167, 139, 255, 0.6);
+    }
+
+    .certificate-content h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.6rem;
+    }
+
+    .certificate-content p {
+      font-size: 1rem;
+      margin-bottom: 0;
+      color: #e0b4ff;
+    }
+
+    @media (max-width: 600px) {
+      .certificate {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>My Certificates</h1>
+    <hr class="divider" />
+  </header>
+
+  <main class="certificate-container" id="certificate-container">
+    <!-- Certificates will be injected by JS -->
+  </main>
+
+  <script>
+    const certificates = [
+      {
+        title: "Responsive Web Design",
+        issuer: "freeCodeCamp",
+        id: "krishna-2121-rwd",
+        url: "https://www.freecodecamp.org/certification/Krishna-2121/responsive-web-design",
+        image: "https://i.postimg.cc/k4B0FbSX/freecodecamp.png"
+      },
+      {
+        title: "Certificate of Participation in Web Development Internship",
+        issuer: "Unstop",
+        id: "822396f6-3a04-4529-9401-6a5fbf92da16",
+        url: "https://unstop.com/certificate-preview/822396f6-3a04-4529-9401-6a5fbf92da16?utm_campaign=site-emails",
+        image: "https://i.postimg.cc/L6BbPTW3/unstop.png"
+      },
+      {
+        title: "Skyscanner - Front-End Software Engineering Job Simulation",
+        issuer: "Forage",
+        id: "MCXNDxTmL8Rmqg9jd",
+        url: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/skoQmxqhtgWmKv2pm/km4rw7dihDr3etqom_skoQmxqhtgWmKv2pm_Rr7jNA2oRQk7pgHG4_1745489919249_completion_certificate.pdf",
+        image: "https://i.postimg.cc/0QDfs5R0/skyscanner.png"
+      }
+    ];
+
+    const container = document.getElementById('certificate-container');
+
+    certificates.forEach(cert => {
+      const certHTML = `
+        <a href="${cert.url}" target="_blank" rel="noopener noreferrer" class="certificate">
+          <img src="${cert.image}" alt="${cert.title}" />
+          <div class="certificate-content">
+            <h3>${cert.title}</h3>
+            <h4>Issued by ${cert.issuer}</h4>
+            <p>Credential ID: ${cert.id}</p>
+          </div>
+        </a>
+      `;
+      container.innerHTML += certHTML;
+    });
+  </script>
+</body>
+
+</html>

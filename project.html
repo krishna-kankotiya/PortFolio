@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My GitHub Projects</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #121212, #1e1e1e); /* Dark background with subtle gradient */
+      color: #dcdcdc; /* Light text */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #1f1f1f; /* Dark header background */
+      color: #a78bff; /* Main purple accent */
+      text-align: center;
+      padding: 30px 20px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* Slightly stronger shadow */
+    }
+
+    .repo-list {
+      margin: 40px 20px;
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .repo {
+      background: #292929; /* Darker background for repo cards */
+      border: 1px solid #7c4dff; /* Deeper purple border */
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow */
+      transition: all 0.3s ease-in-out;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+      cursor: pointer;
+      text-decoration: none; /* Remove underline from anchor tag */
+    }
+
+    @keyframes fadeInUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .repo:hover {
+      background-color: #333; /* Slightly lighter dark on hover */
+      box-shadow: 0 6px 15px rgba(167, 139, 255, 0.3); /* Softer purple shadow on hover */
+      transform: translateY(-5px); /* Less lift on hover */
+    }
+
+    .repo h3 {
+      color: #a78bff; /* Main purple accent for title */
+      margin-bottom: 10px;
+      text-shadow: 0 0 3px rgba(167, 139, 255, 0.6); /* Subtle purple glow */
+    }
+
+    .repo p {
+      color: #b0b0b0; /* Consistent light grey text */
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #1f1f1f; /* Dark footer background */
+      color: #888; /* Muted grey text */
+      font-size: 14px;
+      border-top: 1px solid #333;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <h1>Krishna's GitHub Projects</h1>
+    <p>These are my open-source projects from GitHub</p>
+  </header>
+
+  <div class="repo-list" id="repo-list">
+    <p style="text-align: center; color: #b0b0b0;">Loading projects...</p>
+  </div>
+
+  <script>
+    const repoList = document.getElementById("repo-list");
+    const username = "krishna-kankotiya"; // Your GitHub username
+
+    async function fetchRepos() {
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos`);
+        if (!response.ok) throw new Error('Failed to fetch repos');
+        const repos = await response.json();
+
+        // Sort by stars descending and take top 6
+        repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+        const topRepos = repos.slice(0, 6);
+
+        repoList.innerHTML = topRepos.map((repo, i) => `
+          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo" style="animation-delay:${i * 0.1}s;">
+            <h3>🌟 ${repo.name}</h3>
+            <p>${repo.description || 'No description provided.'}</p>
+          </a>
+        `).join('');
+      } catch (error) {
+        repoList.innerHTML = `<p style="color: #f44336; text-align:center;">Error loading projects: ${error.message}</p>`;
+      }
+    }
+
+    fetchRepos();
+  </script>
+</body>
+
+</html>
