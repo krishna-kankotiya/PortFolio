@@ -1,234 +1,247 @@
 body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212; /* Deep dark background */
+  color: #eee; /* Light text */
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
-  color: #333;
 }
 
-/* Header Styling */
 header {
-  color: white;
   text-align: center;
-  padding: 40px 20px;
-  animation: slideDown 1s ease-out;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #1e1e1e, #292929); /* Subtle dark gradient */
+  color: #a78bff; /* Main purple accent */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
 
-/* Navigation Styling */
-nav {
-  background-color: white;
-  padding: 15px 30px;
-  position: sticky;
-  z-index: 999;
+.profile-photo {
+  width: 120px;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid #a78bff; /* Main purple accent border */
+  margin-bottom: 10px;
 }
 
 nav ul {
   display: flex;
-  justify-content: flex-end;
-  list-style: none;
-  gap: 35px;
+  justify-content: center;
+  gap: 30px;
+  background-color: #2a2a2a; /* Darker navigation background */
+  padding: 10px 0;
   margin: 0;
+  list-style: none;
 }
 
 nav a {
+  color: #eee;
+  text-decoration: none;
   font-weight: bold;
-  color: #333;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav a:hover {
-  color: #007BFF;
+  color: #e0b4ff; /* Lighter purple on hover for navigation */
+  text-shadow: 0 0 6px #e0b4ff; /* Subtle glow */
 }
 
 section {
-  margin: 30px 60px;
-  padding: 30px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  animation: fadeInUp 0.8s ease-in;
+  padding: 40px 20px;
 }
 
-/* Project Cards */
-.project {
-  padding: 20px;
+.divider {
+  height: 2px;
+  background: linear-gradient(to right, #a78bff, #7c4dff); /* Purple gradient */
+  border: none;
+  margin: 15px 0;
+}
+
+.para {
+  max-width: 1000px;
+  margin: 10px auto;
+  line-height: 1.6;
+}
+
+.portfolio {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.portfolio .title {
+  font-size: 1.5rem;
   margin-bottom: 20px;
-  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-  border-left: 4px solid #007BFF;
+  color: #a78bff; /* Main purple accent */
 }
 
-.project:hover {
-  transform: translateY(-5px);
+.buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #7c4dff, #a78bff); /* Purple gradient */
+  border: none;
+  color: #fff;
+  font-weight: bold;
   cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.4s, transform 0.3s;
 }
 
-/* Form Styling */
+.buttons button:hover {
+  background: linear-gradient(135deg, #a78bff, #7c4dff); /* Reversed purple gradient on hover */
+  transform: scale(1.1);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.contact-card {
+  width: 290px;
+  height: 250px;
+  background: linear-gradient(135deg, #1f1f1f, #292929); /* Dark gradient for cards */
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px); /* Slightly less lift */
+  box-shadow: 0 6px 15px rgba(167, 139, 255, 0.3); /* Softer purple shadow on hover */
+  background: linear-gradient(135deg, #3a3a3a, #4a4a4a); /* Subtle dark gradient on hover */
+  /* OR use a subtle purple tint: background: linear-gradient(135deg, #2a2a2a, #3a3a3a); border: 1px solid #a78bff;*/
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background-color: #fff; /* White background for icons */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s;
+}
+
+.contact-card:hover .icon-circle {
+  background: #121212; /* Dark background for icons on hover */
+}
+
+.icon-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #a78bff; /* Main purple accent */
+  text-shadow: 0 0 5px #a78bff; /* Subtle purple glow */
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 form {
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 20px;
 }
 
 form input,
 form textarea {
-  padding: 14px;
-  border-radius: 16px;
-  font-size: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #eee;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #a78bff; /* Main purple on focus */
 }
 
 form button {
-  background: linear-gradient(to right, gray, lightblue);
+  background: linear-gradient(135deg, #7c4dff, #a78bff); /* Purple gradient for form button */
+  color: #fff;
   font-weight: bold;
-  padding: 14px;
-  transition: background 0.3s, transform 0.2s;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 form button:hover {
-  background: linear-gradient(to right, lightskyblue, gray);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #a78bff, #7c4dff); /* Reversed purple gradient on hover */
 }
 
-/* Footer Styling */
 footer {
   text-align: center;
   padding: 20px;
-  background: #333;
-  color: white;
+  background-color: #1e1e1e;
+  color: #aaa;
   margin-top: 40px;
 }
-
-header {
-  background: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExc202ZWhiaGUzcmN0anNua2VmYmh1Yms5NHhwbjBvZWNhb3FvcDRvcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XTAqdwCL2oEus/giphy.gif") center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
+.highlight-section {
+  animation: highlightPulse 1.5s ease forwards;
 }
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2gxaGRnYmZqYW1wOTB5aXRnNHd0ejVuMXNpNXZzZXM2NjQyb3N2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YmzO3P2e4qYkitoVcF/giphy.gif") center/cover no-repeat;
-  z-index: -10;
-  opacity: 0.2;
-  filter: blur(1px);
-}
-
-header {
-  position: relative;
-  z-index: 1;
-}
-
-.project {
-  background: url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzN1ajVuYTFjbWo3aGFlZjhkZXMzYjR0Y2R6bDkwOTRtcGxhZzJubiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BHNfhgU63qrks/giphy.gif") center/cover no-repeat;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-
-.project h3,
-.project p {
-  position: relative;
-  z-index: 1;
-}
-
-section#feedback {
-  background: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExc212N3VjN2c3Yjl2NWZjNWdudDczaTRoMnhiOWZud285aXZmY3U5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2OQM7PafZPhe0/giphy.gif") center/cover no-repeat;
-  position: relative;
-  color: white;
-  overflow: hidden;
-}
-
-section#feedback form,
-section#feedback h1,
-section#feedback hr {
-  position: relative;
-  z-index: 1;
-}
-
-section#home {
-  background: linear-gradient(135deg, #ff6a00, #2575fc);
-  background-size: 400% 400%;
-  animation: gradientFlow 15s ease infinite, fadeSlideIn 1s ease-in;
-  color: white;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-section#home:hover {
-  transform: translateY(-5px);
-}
-
-/* Flowing animated gradient */
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Smooth fade-in */
-@keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Text Styling */
-section#home .para {
-  color: #fefefe;
-  font-size: 17px;
-  line-height: 1.9;
-  text-align: center;
-  font-weight: 400;
-}
-#contact {
-  background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGxiZm90ZnBkNHdieGwxN244NTNvbjcyZDRtczJkbW12MXZoazdoOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qBu5gOYEqHhgDQs/giphy.gif') no-repeat center center/cover;
-  padding: 40px 30px;
-  color: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-#contact * {
-  position: relative;
-  color: darkslategray;
-  font-weight: bolder;
-  z-index: 1;
-}
-
-#contact h1 {
-  color: darkslategray;
-  font-weight: bolder;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.info-table {
-  width: 100%;
+.portfolio-box {
+  background: linear-gradient(135deg, #1f1f1f, #292929);
+  border: 2px solid #a78bff;
+  border-radius: 16px;
+  padding: 30px 20px;
   max-width: 600px;
-  margin: auto;
-  border-spacing: 10px;
-  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 100px;
+  box-shadow: 0 6px 18px rgba(167, 139, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-table td a {
-  color: #a3fffa;
-  text-decoration: underline;
+.portfolio-box:hover {
+  transform: scale(1.03); /* Slightly increases size */
+  box-shadow: 0 10px 24px rgba(167, 139, 255, 0.35); /* Enhanced glow on hover */
+}
+
+
+@keyframes highlightPulse {
+  0% {
+    box-shadow: 0 0 10px 5px #a78bffa0; /* Main purple pulse */
+    background-color: #2b1d3d; /* Darker purple for pulse */
+  }
+  100% {
+    box-shadow: none;
+    background-color: transparent;
+  }
 }
