@@ -1,7 +1,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #121212; /* Deep dark background */
-  color: #eee; /* Light text */
+  background-color: #121212;
+  color: #eee;
   margin: 0;
   padding: 0;
 }
@@ -9,8 +9,8 @@ body {
 header {
   text-align: center;
   padding: 30px 20px;
-  background: linear-gradient(135deg, #1e1e1e, #292929); /* Subtle dark gradient */
-  color: #a78bff; /* Main purple accent */
+  background: linear-gradient(135deg, #1e1e1e, #292929);
+  color: #a78bff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
 
@@ -18,7 +18,7 @@ header {
   width: 120px;
   height: auto;
   border-radius: 50%;
-  border: 3px solid #a78bff; /* Main purple accent border */
+  border: 3px solid #a78bff;
   margin-bottom: 10px;
 }
 
@@ -26,7 +26,7 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 30px;
-  background-color: #2a2a2a; /* Darker navigation background */
+  background-color: #2a2a2a;
   padding: 10px 0;
   margin: 0;
   list-style: none;
@@ -40,8 +40,8 @@ nav a {
 }
 
 nav a:hover {
-  color: #e0b4ff; /* Lighter purple on hover for navigation */
-  text-shadow: 0 0 6px #e0b4ff; /* Subtle glow */
+  color: #e0b4ff;
+  text-shadow: 0 0 6px #e0b4ff;
 }
 
 section {
@@ -50,7 +50,7 @@ section {
 
 .divider {
   height: 2px;
-  background: linear-gradient(to right, #a78bff, #7c4dff); /* Purple gradient */
+  background: linear-gradient(to right, #a78bff, #7c4dff);
   border: none;
   margin: 15px 0;
 }
@@ -69,13 +69,13 @@ section {
 .portfolio .title {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #a78bff; /* Main purple accent */
+  color: #a78bff;
 }
 
 .buttons button {
   margin: 10px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #7c4dff, #a78bff); /* Purple gradient */
+  background: linear-gradient(135deg, #7c4dff, #a78bff);
   border: none;
   color: #fff;
   font-weight: bold;
@@ -85,7 +85,7 @@ section {
 }
 
 .buttons button:hover {
-  background: linear-gradient(135deg, #a78bff, #7c4dff); /* Reversed purple gradient on hover */
+  background: linear-gradient(135deg, #a78bff, #7c4dff);
   transform: scale(1.1);
 }
 
@@ -95,12 +95,14 @@ section {
   gap: 24px;
   margin-top: 30px;
   padding: 20px;
+  justify-items: center;
 }
 
 .contact-card {
-  width: 290px;
+  width: 100%;
+  max-width: 290px;
   height: 250px;
-  background: linear-gradient(135deg, #1f1f1f, #292929); /* Dark gradient for cards */
+  background: linear-gradient(135deg, #1f1f1f, #292929);
   color: white;
   text-align: center;
   border-radius: 20px;
@@ -114,16 +116,15 @@ section {
 }
 
 .contact-card:hover {
-  transform: translateY(-5px); /* Slightly less lift */
-  box-shadow: 0 6px 15px rgba(167, 139, 255, 0.3); /* Softer purple shadow on hover */
-  background: linear-gradient(135deg, #3a3a3a, #4a4a4a); /* Subtle dark gradient on hover */
-  /* OR use a subtle purple tint: background: linear-gradient(135deg, #2a2a2a, #3a3a3a); border: 1px solid #a78bff;*/
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(167, 139, 255, 0.3);
+  background: linear-gradient(135deg, #3a3a3a, #4a4a4a);
 }
 
 .icon-circle {
   width: 70px;
   height: 70px;
-  background-color: #fff; /* White background for icons */
+  background-color: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -134,7 +135,7 @@ section {
 }
 
 .contact-card:hover .icon-circle {
-  background: #121212; /* Dark background for icons on hover */
+  background: #121212;
 }
 
 .icon-img {
@@ -147,8 +148,8 @@ section {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 6px;
-  color: #a78bff; /* Main purple accent */
-  text-shadow: 0 0 5px #a78bff; /* Subtle purple glow */
+  color: #a78bff;
+  text-shadow: 0 0 5px #a78bff;
 }
 
 .card-subtitle {
@@ -156,16 +157,16 @@ section {
   color: #ccc;
 }
 
+/* ✅ Fully responsive layout fix */
 @media screen and (max-width: 768px) {
   .contact-grid {
-    grid-template-columns: repeat(1, 1fr);
-    margin-left: 40px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .contact-grid {
     grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -189,11 +190,11 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-  border-color: #a78bff; /* Main purple on focus */
+  border-color: #a78bff;
 }
 
 form button {
-  background: linear-gradient(135deg, #7c4dff, #a78bff); /* Purple gradient for form button */
+  background: linear-gradient(135deg, #7c4dff, #a78bff);
   color: #fff;
   font-weight: bold;
   padding: 10px;
@@ -204,7 +205,7 @@ form button {
 }
 
 form button:hover {
-  background: linear-gradient(135deg, #a78bff, #7c4dff); /* Reversed purple gradient on hover */
+  background: linear-gradient(135deg, #a78bff, #7c4dff);
 }
 
 footer {
@@ -214,9 +215,11 @@ footer {
   color: #aaa;
   margin-top: 40px;
 }
+
 .highlight-section {
   animation: highlightPulse 1.5s ease forwards;
 }
+
 .portfolio-box {
   background: linear-gradient(135deg, #1f1f1f, #292929);
   border: 2px solid #a78bff;
@@ -230,18 +233,18 @@ footer {
 }
 
 .portfolio-box:hover {
-  transform: scale(1.03); /* Slightly increases size */
-  box-shadow: 0 10px 24px rgba(167, 139, 255, 0.35); /* Enhanced glow on hover */
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(167, 139, 255, 0.35);
 }
-
 
 @keyframes highlightPulse {
   0% {
-    box-shadow: 0 0 10px 5px #a78bffa0; /* Main purple pulse */
-    background-color: #2b1d3d; /* Darker purple for pulse */
+    box-shadow: 0 0 10px 5px #a78bffa0;
+    background-color: #2b1d3d;
   }
   100% {
     box-shadow: none;
     background-color: transparent;
   }
 }
+
